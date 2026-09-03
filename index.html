@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Panda 🐼❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5, #ffe4ec);
+    color: #44202c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.card {
+    width: 92%;
+    max-width: 440px;
+    background: rgba(255,255,255,0.94);
+    padding: 28px 22px;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(120,40,70,0.18);
+    text-align: center;
+    position: relative;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.6s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.big-heart {
+    font-size: 65px;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+h1 {
+    font-size: 29px;
+    margin: 12px 0;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+p {
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.small {
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+button {
+    background: #e85d88;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 24px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(232,93,136,0.25);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+.memory {
+    background: #fff0f5;
+    border-radius: 20px;
+    padding: 16px;
+    margin: 15px 0;
+}
+
+.memory span {
+    font-size: 40px;
+}
+
+.choice {
+    width: 100%;
+    margin: 7px 0;
+    background: #f5a1bb;
+}
+
+.correct {
+    background: #72b88b !important;
+}
+
+.wrong {
+    background: #d98989 !important;
+}
+
+.reveal {
+    display: none;
+    margin-top: 18px;
+    padding: 15px;
+    background: #fff4f7;
+    border-radius: 18px;
+}
+
+.photo {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 12px;
+}
+
+.music {
+    background: #fff0f5;
+    padding: 18px;
+    border-radius: 20px;
+    margin-top: 18px;
+}
+
+.final {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh) rotate(20deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="card">
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+
+    <div class="big-heart">🐼❤️</div>
+
+    <h1>For My Panda</h1>
+
+    <p>
+        From your<br>
+        <b>Yaana Kutty 🐘</b>
+    </p>
+
+    <div class="memory">
+        <b>3 years</b> of knowing you as a friend...
+        <br><br>
+        <b>5 months</b> of calling you mine...
+    </div>
+
+    <p>
+        And today I have something
+        I really want you to know.
+    </p>
+
+    <button onclick="nextPage(2)">
+        Open this, Babu ❤️
+    </button>
+
+</div>
+
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+
+    <div class="big-heart">🥺</div>
+
+    <h1>About Yesterday</h1>
+
+    <p>
+        Panda, I know we already talked
+        and fixed things.
+    </p>
+
+    <p>
+        But I know there is still a little
+        worry in your heart.
+    </p>
+
+    <p>
+        So I don't want to just say
+        <b>"don't worry."</b>
+    </p>
+
+    <p>
+        I want you to understand
+        what I understood.
+    </p>
+
+    <button onclick="nextPage(3)">
+        Continue ❤️
+    </button>
+
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+
+    <h1>What I Should Have Seen 👀</h1>
+
+    <p>
+        Yesterday I was thinking about
+        the lighting...
+    </p>
+
+    <p>
+        I said I couldn't see your face
+        clearly because it was shining.
+    </p>
+
+    <p>
+        But honestly...
+    </p>
+
+    <div class="memory">
+
+        <p>❌ I shouldn't have focused on the lighting.</p>
+
+        <p>❌ I shouldn't have ignored you.</p>
+
+        <p>❌ I shouldn't have failed to notice how tired you were.</p>
+
+        <p>❤️ I should have noticed <b>YOU.</b></p>
+
+    </div>
+
+    <button onclick="nextPage(4)">
+        I understand now 🥺
+    </button>
+
+</div>
+
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+
+    <div class="big-heart">🐼❤️</div>
+
+    <h1>You Were Not Feeling Well</h1>
+
+    <p>
+        You were tired.
+        <br>
+        You weren't feeling well.
+        <br>
+        You were sick.
+    </p>
+
+    <p>
+        And you still called me...
+        <br>
+        again and again.
+    </p>
+
+    <p>
+        You didn't need perfect lighting.
+        <br>
+        You needed your Yaana Kutty
+        to actually be there for you.
+    </p>
+
+    <p>
+        <b>I'm sorry, Babu.</b>
+    </p>
+
+    <button onclick="nextPage(5)">
+        One important thing ❤️
+    </button>
+
+</div>
+
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+
+    <h1>Let's See If You Know Me 😌</h1>
+
+    <p>
+        What does your Yaana Kutty
+        want right now?
+    </p>
+
+    <button class="choice" onclick="answer(this, true)">
+        To see his Panda ❤️
+    </button>
+
+    <button class="choice" onclick="answer(this, false)">
+        To win an argument 😂
+    </button>
+
+    <button class="choice" onclick="answer(this, false)">
+        To complain about the lighting again 💀
+    </button>
+
+    <div class="reveal" id="answer">
+        <b>Correct. 🥺❤️</b>
+        <br><br>
+        I just want to see you happy.
+    </div>
+
+    <button onclick="nextPage(6)">
+        Continue 🐼
+    </button>
+
+</div>
+
+
+<!-- PAGE 6 -->
+<div class="page" id="page6">
+
+    <h1>Our Little Story ❤️</h1>
+
+    <div class="memory">
+        <span>👫</span>
+
+        <h2>3 Years</h2>
+
+        <p>
+            We started as friends.
+            Three years of knowing each other,
+            talking, laughing and making memories.
+        </p>
+    </div>
+
+    <div class="memory">
+        <span>🎁</span>
+
+        <h2>Batharamulla</h2>
+
+        <p>
+            I still remember when you came
+            for your internship...
+        </p>
+
+        <p>
+            I gave you a gift and got to spend
+            time talking with you.
+        </p>
+
+        <p>
+            I didn't know then how important
+            you would become to me.
+        </p>
+    </div>
+
+    <button onclick="nextPage(7)">
+        And then... ❤️
+    </button>
+
+</div>
+
+
+<!-- PAGE 7 -->
+<div class="page" id="page7">
+
+    <div class="big-heart">❤️</div>
+
+    <h1>5 Months of Us</h1>
+
+    <p>
+        Five months as lovers.
+    </p>
+
+    <p>
+        Five months of calling you
+        <b>Babu</b>.
+    </p>
+
+    <p>
+        Five months of being your
+        <b>Yaana Kutty 🐘</b>.
+    </p>
+
+    <p>
+        And I'm still learning
+        how to love you better.
+    </p>
+
+    <p>
+        Yesterday reminded me of something:
+        <br><br>
+        <b>
+        Loving you isn't only about
+        the good moments.
+        It's about caring for you
+        when you don't feel good too.
+        </b>
+    </p>
+
+    <button onclick="nextPage(8)">
+        Next ❤️
+    </button>
+
+</div>
+
+
+<!-- PAGE 8 -->
+<div class="page" id="page8">
+
+    <h1>Emergency Panda Kit 🐼🚨</h1>
+
+    <p>
+        Every Panda needs these:
+    </p>
+
+    <div class="memory">
+        🍜 <b>Koththu</b>
+        <br>
+        Peace offering.
+    </div>
+
+    <div class="memory">
+        🥤 <b>Ice Milo</b>
+        <br>
+        For my favorite Panda.
+    </div>
+
+    <div class="memory">
+        🍫 <b>Milo</b>
+        <br>
+        Because Milo makes everything
+        slightly better 😂
+    </div>
+
+    <button onclick="nextPage(9)">
+        There's one more thing 🎵
+    </button>
+
+</div>
+
+
+<!-- PAGE 9 -->
+<div class="page" id="page9">
+
+    <div class="music">
+
+        <div style="font-size:50px;">🎵</div>
+
+        <h2>Mudhal Nee Mudivum Nee</h2>
+
+        <p>
+            You know why I chose this one. ❤️
+        </p>
+
+        <p>
+            Some songs just sound different
+            when you have someone special
+            in your life.
+        </p>
+
+        <p>
+            For me, this one reminds me of you.
+        </p>
+
+    </div>
+
+    <button onclick="nextPage(10)">
+        Final message 🥺
+    </button>
+
+</div>
+
+
+<!-- PAGE 10 -->
+<div class="page" id="page10">
+
+    <div class="big-heart">🐼❤️🐘</div>
+
+    <h1>Haniya...</h1>
+
+    <p>
+        I don't want you to forgive me
+        just because I made this.
+    </p>
+
+    <p>
+        I want you to genuinely feel
+        that you matter to me.
+    </p>
+
+    <p>
+        Your character.
+        <br>
+        Your beauty.
+        <br>
+        Your good heart.
+        <br>
+        The way you behave.
+        <br><br>
+        <b>
+        All those little things are
+        the reasons I fell for you.
+        </b>
+    </p>
+
+    <p>
+        And I'm sorry that yesterday
+        I didn't show you that properly.
+    </p>
+
+    <p class="final">
+        I love you, Babu. ❤️
+    </p>
+
+    <button onclick="finalSurprise()">
+        One last thing... 👀
+    </button>
+
+    <div class="reveal" id="final">
+
+        <h2>🐼❤️🐘</h2>
+
+        <p>
+            Your face can shine.
+            <br>
+            Your lighting can be terrible.
+            <br>
+            You can look tired.
+            <br><br>
+
+            <b>
+            I still want to see you.
+            </b>
+        </p>
+
+        <p>
+            Because I'm not here
+            just for the perfect version of you.
+        </p>
+
+        <p>
+            <b>
+            I want YOU. ❤️
+            </b>
+        </p>
+
+        <button onclick="callMe()">
+            📞 Call Your Yaana Kutty
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function nextPage(number) {
+
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + number).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function answer(button, correct) {
+
+    if (correct) {
+        button.classList.add("correct");
+        document.getElementById("answer").style.display = "block";
+        createHearts();
+    } else {
+        button.classList.add("wrong");
+
+        setTimeout(function() {
+            button.classList.remove("wrong");
+        }, 700);
+    }
+}
+
+function finalSurprise() {
+
+    document.getElementById("final").style.display = "block";
+
+    createHearts();
+
+}
+
+function createHearts() {
+
+    for (let i = 0; i < 12; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+
+        heart.innerHTML =
+            ["❤️","💕","💗","💖","🐼"][Math.floor(Math.random() * 5)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (3 + Math.random() * 3) + "s";
+
+        document.getElementById("hearts").appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 6000);
+    }
+}
+
+function callMe() {
+
+    window.location.href = "tel:";
+
+}
+
+</script>
+
+</body>
+</html>
